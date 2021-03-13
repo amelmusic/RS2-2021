@@ -31,6 +31,15 @@ namespace eProdaja
             services.AddSwaggerGen();
 
             services.AddScoped<IProizvodService, ProizvodService>();
+            //ICIPSService -
+            //CIPSService
+            //DummyCIPSService
+
+
+            //services.AddScoped<ICIPSService, CIPSService>();
+            //transient - svaki resolve kroz konstruktor, dobija novu instancu
+            //scoped - dok je "http request" "živ"
+            //singletone - za sve requeste je ista instanca
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

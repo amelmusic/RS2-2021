@@ -11,6 +11,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eProdaja.Services;
+using Microsoft.EntityFrameworkCore;
+using eProdaja.Database;
+using eProdaja.Filters;
 
 namespace eProdaja
 {
@@ -26,11 +29,20 @@ namespace eProdaja
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddAutoMapper(typeof(Startup));
+
+            services.AddControllers(x =>
+            {
+                x.Filters.Add<ErrorFilter>();
+            });
 
             services.AddSwaggerGen();
 
+            services.AddDbContext<eProdajaContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddScoped<IProizvodService, ProizvodService>();
+            services.AddScoped<IKorisniciService, KorisniciService>();
             //ICIPSService -
             //CIPSService
             //DummyCIPSService

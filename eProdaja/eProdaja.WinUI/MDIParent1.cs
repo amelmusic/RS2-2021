@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using eProdaja.WinUI.Proizvodi;
 
 namespace eProdaja.WinUI
 {
@@ -113,12 +114,12 @@ namespace eProdaja.WinUI
             frm.Show();
         }
 
-        private void pregledToolStripMenuItem_Click(object sender, EventArgs e)
+        private void proizvodiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //frmProizvodi frm = new frmProizvodi();
-            //frm.MdiParent = this;
-            //frm.WindowState = FormWindowState.Maximized;
-            //frm.Show();
+            frmProizvodi frm = new frmProizvodi();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
         }
     }
 }

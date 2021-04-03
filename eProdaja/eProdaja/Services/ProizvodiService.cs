@@ -43,7 +43,7 @@ namespace eProdaja.Services
                 entity = entity.Include(x => x.JedinicaMjere);
             }
 
-            if (search?.IncludeList.Length > 0)
+            if (search?.IncludeList?.Length > 0)
             {
                 foreach(var item in search.IncludeList)
                 {

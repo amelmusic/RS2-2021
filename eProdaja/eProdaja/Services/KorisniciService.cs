@@ -69,13 +69,42 @@ namespace eProdaja.Services
 
         public Model.Korisnici Insert(KorisniciInsertRequest request)
         {
-            //throw new NotImplementedException();
-            throw new UserException("Lozinka nije ispravna");
+            var entity = _mapper.Map<Database.Korisnici>(request);
+            Context.Add(entity);
+            if (request.Password != request.PasswordPotvrda)
+            {
+                //throw new NotImplementedException();
+                throw new UserException("Lozinka nije ispravna");
+            }
+
+            entity.LozinkaSalt = GenerateSalt();
+            entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Password);
+
+            Context.SaveChanges();
+
+            foreach (var uloga in request.Uloge)
+            {
+                Database.KorisniciUloge korisniciUloge = new KorisniciUloge();
+                korisniciUloge.KorisnikId = entity.KorisnikId;
+                korisniciUloge.UlogaId = uloga;
+                korisniciUloge.DatumIzmjene = DateTime.Now;
+
+                Context.KorisniciUloges.Add(korisniciUloge);
+            }
+
+            Context.SaveChanges();
+
+            return _mapper.Map<Model.Korisnici>(entity);
+
         }
 
-        public Korisnici Update(int id, KorisniciUpdateRequest korisnici)
+        public Korisnici Update(int id, KorisniciUpdateRequest request)
         {
-            throw new NotImplementedException();
+            var entity = Context.Korisnicis.Find(id);
+            _mapper.Map(request, entity);
+
+            Context.SaveChanges();
+            return _mapper.Map<Model.Korisnici>(entity);
         }
 
         //GetById

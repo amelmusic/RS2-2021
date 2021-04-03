@@ -68,5 +68,14 @@ namespace eProdaja.WinUI.Properties {
                 return ResourceManager.GetString("ApiUrl", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ime korisnika.
+        /// </summary>
+        internal static string lblImeKorisnika {
+            get {
+                return ResourceManager.GetString("lblImeKorisnika", resourceCulture);
+            }
+        }
     }
 }

@@ -21,15 +21,27 @@ namespace eProdaja.Controllers
         }
 
         [HttpGet]
-        public IList<Model.Korisnici> Get()
+        public IList<Model.Korisnici> GetAll([FromQuery] KorisniciSearchRequest request)
         {
-            return _service.Get();
+            return _service.GetAll(request);
+        }
+
+        [HttpGet("{id}")]
+        public Model.Korisnici GetById(int id)
+        {
+            return _service.GetById(id);
         }
 
         [HttpPost]
-        public Model.Korisnici Insert([FromBody] KorisniciInsertRequest request)
+        public Model.Korisnici Insert(KorisniciInsertRequest korisnici)
         {
-            return _service.Insert(request);
+            return _service.Insert(korisnici);
+        }
+
+        [HttpPut("{id}")]
+        public Model.Korisnici Update(int id, [FromBody] KorisniciUpdateRequest request)
+        {
+            return _service.Update(id, request);
         }
     }
 }

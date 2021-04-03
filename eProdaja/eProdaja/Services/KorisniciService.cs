@@ -8,6 +8,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Korisnici = eProdaja.Model.Korisnici;
 
 namespace eProdaja.Services
 {
@@ -22,15 +23,59 @@ namespace eProdaja.Services
             _mapper = mapper;
         }
 
-        public List<Model.Korisnici> Get()
+
+        public IList<Korisnici> GetAll(KorisniciSearchRequest search)
         {
-            return Context.Korisnicis.ToList().Select(x => _mapper.Map<Model.Korisnici>(x)).ToList();
+            var query = Context.Korisnicis.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(search?.Ime))
+            {
+                query = query.Where(x => x.Ime == search.Ime);
+            }
+
+            if (!string.IsNullOrWhiteSpace(search?.PrezimeFilter))
+            {
+                query = query.Where(x => x.Prezime == search.PrezimeFilter);
+            }
+
+            var entities = query.ToList();
+            //List<Model.Korisnici> result = new List<Model.Korisnici>();
+            //entities
+            //    .Where(x  => !string.IsNullOrEmpty(x.Email)).ToList()
+            //    .ForEach(x => result.Add(new Model.Korisnici()
+            //{
+            //    Email = x.Email,
+            //    Ime = x.Ime,
+            //    KorisnickoIme = x.KorisnickoIme,
+            //    KorisnikId = x.KorisnikId,
+            //    Prezime = x.Ime,
+            //    Status = x.Status,
+            //    Telefon = x.Telefon,
+            //    Index = 1000
+            //}));
+
+            var result = _mapper.Map<IList<Model.Korisnici>>(entities);
+
+
+            return result;
+        }
+
+        public Korisnici GetById(int id)
+        {
+            var entity = Context.Korisnicis.Find(id);
+
+            return _mapper.Map<Model.Korisnici>(entity);
         }
 
         public Model.Korisnici Insert(KorisniciInsertRequest request)
         {
             //throw new NotImplementedException();
             throw new UserException("Lozinka nije ispravna");
+        }
+
+        public Korisnici Update(int id, KorisniciUpdateRequest korisnici)
+        {
+            throw new NotImplementedException();
         }
 
         //GetById

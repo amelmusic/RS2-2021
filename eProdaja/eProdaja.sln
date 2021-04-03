@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eProdaja", "eProdaja\eProdaja.csproj", "{D14DF4B2-04F7-43EA-ADB0-136162D774D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eProdaja.Model", "eProdaja.Model\eProdaja.Model.csproj", "{E7A327D6-92B0-4B75-9303-4EDABB591F60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eProdaja.Model", "eProdaja.Model\eProdaja.Model.csproj", "{E7A327D6-92B0-4B75-9303-4EDABB591F60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{0242AF2E-C39E-48B2-9F51-EBC4C7301463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eProdaja.WinUI", "eProdaja.WinUI\eProdaja.WinUI.csproj", "{1DD3F6E7-B80F-4D00-AFA2-EB8D18683E2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +25,16 @@ Global
 		{E7A327D6-92B0-4B75-9303-4EDABB591F60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7A327D6-92B0-4B75-9303-4EDABB591F60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7A327D6-92B0-4B75-9303-4EDABB591F60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DD3F6E7-B80F-4D00-AFA2-EB8D18683E2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DD3F6E7-B80F-4D00-AFA2-EB8D18683E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DD3F6E7-B80F-4D00-AFA2-EB8D18683E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DD3F6E7-B80F-4D00-AFA2-EB8D18683E2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1DD3F6E7-B80F-4D00-AFA2-EB8D18683E2E} = {0242AF2E-C39E-48B2-9F51-EBC4C7301463}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E60A7A31-8EBB-455E-8189-3B6173AB8ABA}

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using eProdaja.Model;
+using eProdaja.Model.Requests;
 
 namespace eProdaja.WinUI.Proizvodi
 {
@@ -97,9 +98,55 @@ namespace eProdaja.WinUI.Proizvodi
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private ProizvodiInsertRequest insert = new ProizvodiInsertRequest();
+        private ProizvodiUpdateRequest update = new ProizvodiUpdateRequest();
+        private async void btnSave_Click(object sender, EventArgs e)
         {
+            var idObj = cmbVrstaProizvoda.SelectedValue;
 
+            if (int.TryParse(idObj.ToString(), out int vrstaId))
+            {
+                insert.VrstaId = vrstaId;
+                update.VrstaId = vrstaId;
+            }
+
+            var jedinicaMjereObj = cmbJedinicaMjere.SelectedValue;
+
+            if (int.TryParse(jedinicaMjereObj.ToString(), out int jedinicaMjereId))
+            {
+                insert.JedinicaMjereId = jedinicaMjereId;
+                update.JedinicaMjereId = jedinicaMjereId;
+            }
+
+            insert.Naziv = update.Naziv = txtNaziv.Text;
+            insert.Sifra = txtSifra.Text;
+
+            if (decimal.TryParse(txtCijena.Text, out decimal cijena))
+            {
+                insert.Cijena = update.Cijena = cijena;
+            }
+
+            if (selectedProizvod == null)
+            {
+                await _proizvodi.Insert<Model.Proizvodi>(insert);
+            }
+            else
+            {
+                await _proizvodi.Update<Model.Proizvodi>(selectedProizvod.ProizvodId, update);
+            }
+            
+        }
+
+        private Model.Proizvodi selectedProizvod = null;
+        private void dgvProizvodi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var item = dgvProizvodi.SelectedRows[0].DataBoundItem as Model.Proizvodi;
+
+            selectedProizvod = item;
+
+            txtNaziv.Text = selectedProizvod.Naziv;
+            txtSifra.Text = selectedProizvod.Sifra;
+            //TODO: nastaviti
         }
     }
 }

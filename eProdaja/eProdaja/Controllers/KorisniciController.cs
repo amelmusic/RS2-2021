@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using eProdaja.Database;
 using eProdaja.Model.Requests;
 using eProdaja.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eProdaja.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class KorisniciController : ControllerBase
     {
         private readonly IKorisniciService _service;
@@ -32,12 +34,14 @@ namespace eProdaja.Controllers
             return _service.GetById(id);
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public Model.Korisnici Insert(KorisniciInsertRequest korisnici)
         {
             return _service.Insert(korisnici);
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPut("{id}")]
         public Model.Korisnici Update(int id, [FromBody] KorisniciUpdateRequest request)
         {

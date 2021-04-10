@@ -16,5 +16,7 @@ namespace eProdaja.Services
         Model.Korisnici Insert(KorisniciInsertRequest korisnici);
 
         Model.Korisnici Update(int id, KorisniciUpdateRequest korisnici);
+
+        Task<Model.Korisnici> Login(string username, string password);
     }
 }

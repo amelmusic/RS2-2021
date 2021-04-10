@@ -56,115 +56,129 @@ namespace eProdaja.WinUI.Proizvodi
             // cmbVrstaProizvoda
             // 
             this.cmbVrstaProizvoda.FormattingEnabled = true;
-            this.cmbVrstaProizvoda.Location = new System.Drawing.Point(112, 45);
+            this.cmbVrstaProizvoda.Location = new System.Drawing.Point(149, 55);
+            this.cmbVrstaProizvoda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbVrstaProizvoda.Name = "cmbVrstaProizvoda";
-            this.cmbVrstaProizvoda.Size = new System.Drawing.Size(237, 21);
+            this.cmbVrstaProizvoda.Size = new System.Drawing.Size(315, 24);
             this.cmbVrstaProizvoda.TabIndex = 0;
             this.cmbVrstaProizvoda.SelectedIndexChanged += new System.EventHandler(this.cmbVrstaProizvoda_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 45);
+            this.label1.Location = new System.Drawing.Point(17, 55);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 15);
+            this.label1.Size = new System.Drawing.Size(111, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Vrsta proizvoda:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 73);
+            this.label2.Location = new System.Drawing.Point(95, 90);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 15);
+            this.label2.Size = new System.Drawing.Size(41, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Šifra:";
             // 
             // txtSifra
             // 
-            this.txtSifra.Location = new System.Drawing.Point(112, 73);
+            this.txtSifra.Location = new System.Drawing.Point(149, 90);
+            this.txtSifra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSifra.Name = "txtSifra";
-            this.txtSifra.Size = new System.Drawing.Size(237, 20);
+            this.txtSifra.Size = new System.Drawing.Size(315, 22);
             this.txtSifra.TabIndex = 3;
             // 
             // txtNaziv
             // 
-            this.txtNaziv.Location = new System.Drawing.Point(112, 99);
+            this.txtNaziv.Location = new System.Drawing.Point(149, 122);
+            this.txtNaziv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNaziv.Name = "txtNaziv";
-            this.txtNaziv.Size = new System.Drawing.Size(237, 20);
+            this.txtNaziv.Size = new System.Drawing.Size(315, 22);
             this.txtNaziv.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(66, 99);
+            this.label3.Location = new System.Drawing.Point(88, 122);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 15);
+            this.label3.Size = new System.Drawing.Size(47, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Naziv:";
             // 
             // txtCijena
             // 
-            this.txtCijena.Location = new System.Drawing.Point(112, 125);
+            this.txtCijena.Location = new System.Drawing.Point(149, 154);
+            this.txtCijena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCijena.Name = "txtCijena";
-            this.txtCijena.Size = new System.Drawing.Size(84, 20);
+            this.txtCijena.Size = new System.Drawing.Size(111, 22);
             this.txtCijena.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(66, 125);
+            this.label4.Location = new System.Drawing.Point(88, 154);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 15);
+            this.label4.Size = new System.Drawing.Size(51, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Cijena:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(201, 125);
+            this.label5.Location = new System.Drawing.Point(268, 154);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 15);
+            this.label5.Size = new System.Drawing.Size(78, 17);
             this.label5.TabIndex = 9;
             this.label5.Text = "Jed. mjere:";
             // 
             // cmbJedinicaMjere
             // 
             this.cmbJedinicaMjere.FormattingEnabled = true;
-            this.cmbJedinicaMjere.Location = new System.Drawing.Point(275, 125);
+            this.cmbJedinicaMjere.Location = new System.Drawing.Point(367, 154);
+            this.cmbJedinicaMjere.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbJedinicaMjere.Name = "cmbJedinicaMjere";
-            this.cmbJedinicaMjere.Size = new System.Drawing.Size(74, 21);
+            this.cmbJedinicaMjere.Size = new System.Drawing.Size(97, 24);
             this.cmbJedinicaMjere.TabIndex = 8;
             // 
             // pbxSlika
             // 
-            this.pbxSlika.Location = new System.Drawing.Point(421, 16);
+            this.pbxSlika.Location = new System.Drawing.Point(561, 20);
+            this.pbxSlika.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbxSlika.Name = "pbxSlika";
-            this.pbxSlika.Size = new System.Drawing.Size(203, 169);
+            this.pbxSlika.Size = new System.Drawing.Size(271, 208);
             this.pbxSlika.TabIndex = 10;
             this.pbxSlika.TabStop = false;
             // 
             // txtSlika
             // 
-            this.txtSlika.Location = new System.Drawing.Point(112, 162);
+            this.txtSlika.Location = new System.Drawing.Point(149, 199);
+            this.txtSlika.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSlika.Name = "txtSlika";
-            this.txtSlika.Size = new System.Drawing.Size(237, 20);
+            this.txtSlika.Size = new System.Drawing.Size(315, 22);
             this.txtSlika.TabIndex = 12;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(71, 162);
+            this.label6.Location = new System.Drawing.Point(95, 199);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 15);
+            this.label6.Size = new System.Drawing.Size(42, 17);
             this.label6.TabIndex = 11;
             this.label6.Text = "Slika:";
             // 
             // btnUcitajSliku
             // 
-            this.btnUcitajSliku.Location = new System.Drawing.Point(355, 162);
+            this.btnUcitajSliku.Location = new System.Drawing.Point(473, 199);
+            this.btnUcitajSliku.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUcitajSliku.Name = "btnUcitajSliku";
-            this.btnUcitajSliku.Size = new System.Drawing.Size(46, 23);
+            this.btnUcitajSliku.Size = new System.Drawing.Size(61, 28);
             this.btnUcitajSliku.TabIndex = 13;
             this.btnUcitajSliku.Text = "...";
             this.btnUcitajSliku.UseVisualStyleBackColor = true;
@@ -173,9 +187,11 @@ namespace eProdaja.WinUI.Proizvodi
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvProizvodi);
-            this.groupBox1.Location = new System.Drawing.Point(0, 217);
+            this.groupBox1.Location = new System.Drawing.Point(0, 267);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(790, 234);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1053, 288);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Proizvodi";
@@ -186,11 +202,14 @@ namespace eProdaja.WinUI.Proizvodi
             this.dgvProizvodi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.VrstaNaziv});
             this.dgvProizvodi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProizvodi.Location = new System.Drawing.Point(3, 16);
+            this.dgvProizvodi.Location = new System.Drawing.Point(4, 19);
+            this.dgvProizvodi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvProizvodi.Name = "dgvProizvodi";
             this.dgvProizvodi.RowHeadersWidth = 51;
-            this.dgvProizvodi.Size = new System.Drawing.Size(784, 215);
+            this.dgvProizvodi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProizvodi.Size = new System.Drawing.Size(1045, 265);
             this.dgvProizvodi.TabIndex = 0;
+            this.dgvProizvodi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProizvodi_CellDoubleClick);
             // 
             // VrstaNaziv
             // 
@@ -206,9 +225,10 @@ namespace eProdaja.WinUI.Proizvodi
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(653, 161);
+            this.btnSave.Location = new System.Drawing.Point(871, 198);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(100, 28);
             this.btnSave.TabIndex = 15;
             this.btnSave.Text = "Sačuvaj";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -216,9 +236,9 @@ namespace eProdaja.WinUI.Proizvodi
             // 
             // frmProizvodi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 631);
+            this.ClientSize = new System.Drawing.Size(1069, 777);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnUcitajSliku);
@@ -235,6 +255,7 @@ namespace eProdaja.WinUI.Proizvodi
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbVrstaProizvoda);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmProizvodi";
             this.Text = "frmProizvodi";
             this.Load += new System.EventHandler(this.frmProizvodi_Load);

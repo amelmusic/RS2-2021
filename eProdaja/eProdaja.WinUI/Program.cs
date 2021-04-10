@@ -18,7 +18,7 @@ namespace eProdaja.WinUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MDIParent1());
+            Application.Run(new frmLogin());
             
         }
     }

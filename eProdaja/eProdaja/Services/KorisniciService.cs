@@ -8,6 +8,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Korisnici = eProdaja.Model.Korisnici;
 
 namespace eProdaja.Services
@@ -140,6 +141,25 @@ namespace eProdaja.Services
             HashAlgorithm algorithm = HashAlgorithm.Create("SHA1");
             byte[] inArray = algorithm.ComputeHash(dst);
             return Convert.ToBase64String(inArray);
+        }
+
+        public async Task<Model.Korisnici> Login(string username, string password)
+        {
+            var entity = await Context.Korisnicis.Include("KorisniciUloges.Uloga").FirstOrDefaultAsync(x => x.KorisnickoIme == username);
+
+            if (entity == null)
+            {
+                throw new UserException("Pogrešan username ili password");
+            }
+
+            var hash = GenerateHash(entity.LozinkaSalt, password);
+
+            if (hash != entity.LozinkaHash)
+            {
+                throw new UserException("Pogrešan username ili password");
+            }
+
+            return _mapper.Map<Model.Korisnici>(entity);
         }
 
     }

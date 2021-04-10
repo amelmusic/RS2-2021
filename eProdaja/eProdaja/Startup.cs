@@ -14,6 +14,9 @@ using eProdaja.Services;
 using Microsoft.EntityFrameworkCore;
 using eProdaja.Database;
 using eProdaja.Filters;
+using eProdaja.Security;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.OpenApi.Models;
 
 namespace eProdaja
 {
@@ -36,7 +39,27 @@ namespace eProdaja
                 x.Filters.Add<ErrorFilter>();
             });
 
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "eProdaja API", Version = "v1" });
+
+                c.AddSecurityDefinition("basicAuth", new OpenApiSecurityScheme
+                {
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "basic"
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "basicAuth" }
+                        },
+                        new string[]{}
+                    }
+                });
+            });
 
             services.AddDbContext<eProdajaContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -48,7 +71,9 @@ namespace eProdaja
             services.AddScoped<IProizvodiService, ProizvodiService>();
             services.AddScoped<IReadService<Model.Uloge, object>, BaseReadService <Model.Uloge, Database.Uloge, object>>();
 
-            
+            services.AddAuthentication("BasicAuthentication")
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+
             //ICIPSService -
             //CIPSService
             //DummyCIPSService
@@ -81,6 +106,8 @@ namespace eProdaja
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

@@ -20,7 +20,7 @@ namespace eProdaja.Model
         public string Telefon { get; set; }
         public string KorisnickoIme { get; set; }
         public bool? Status { get; set; }
-        //public virtual ICollection<KorisniciUloge> KorisniciUloges { get; set; }
-        
+        public virtual ICollection<KorisniciUloge> KorisniciUloges { get; set; }
+
     }
 }

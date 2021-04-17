@@ -1,0 +1,33 @@
+version: '3'
+services:
+#mssql docker
+  eprodaja-sql:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=QWElkj132!
+      - MSSQL_PID=Developer
+    ports:
+      - 1401:1433
+    networks:
+      - eprodajanet
+
+  eprodaja-api:
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      - ConnectionStrings:DefaultConnection=Server=eprodaja-sql,1433;Database=eProdajaVjezbe;User=sa;Password=QWElkj132!;ConnectRetryCount=0
+    ports:
+      - 5010:5010
+    networks:
+      - eprodajanet      
+    links:
+      - eprodaja-sql
+    depends_on:
+      - eprodaja-sql
+      
+networks:
+  eprodajanet:
+    driver: bridge      

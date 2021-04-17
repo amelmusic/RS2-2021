@@ -504,6 +504,8 @@ namespace eProdaja.Database
                     .HasMaxLength(50);
             });
 
+            modelBuilder.Entity<VrsteProizvodum>().HasData(new VrsteProizvodum { VrstaId = 20, Naziv = "Prehrambeni"});
+
             OnModelCreatingPartial(modelBuilder);
         }
 

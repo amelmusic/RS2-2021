@@ -9,5 +9,6 @@ namespace eProdaja.Services
 {
     public interface IProizvodiService: ICRUDService<Proizvodi, ProizvodiSearchObject, ProizvodiInsertRequest, ProizvodiUpdateRequest>
     {
+        List<Model.Proizvodi> Recommend(int id);
     }
 }

@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace eProdaja.Controllers
 {
@@ -12,6 +14,13 @@ namespace eProdaja.Controllers
     {
         public ProizvodiController(IProizvodiService service) : base(service)
         {
+        }
+
+        [AllowAnonymous]
+        [HttpGet("Recommend/{id}")]
+        public List<Model.Proizvodi> Recommend(int id)
+        {
+            return (_service as IProizvodiService).Recommend(id);
         }
     }
 }
